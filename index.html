@@ -21,18 +21,18 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .main_table_wrapper {
-    width: 100%; 
-    max-width: 1260px; 
-    margin: 0 auto; 
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
 }
 
 .main_table {
-    width: 100%; 
-    border-collapse: collapse; 
+    width: 100%;
+    border-collapse: collapse;
 	border: none;
 }
 
@@ -55,9 +55,9 @@ body {
 }
 
 .menu_table td, .menu_table th {
-    padding: 10px; 
+    padding: 10px;
     vertical-align: middle;
-    text-align: center; 
+    text-align: center;
     white-space: nowrap;
 }
 
@@ -77,9 +77,6 @@ body {
 	justify-content: right;
 	padding: 0 20px;
 	right: 15px;
-	@media only screen and (min-width: 480px) {
-		display: none;
-	}
 }
 
 .menu_bars:hover {
@@ -94,7 +91,7 @@ body {
 
 .fa-solid.fa-circle-plus {
 	color: #111;
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .menu_a:hover .fa-solid.fa-circle-plus {
@@ -166,59 +163,57 @@ img {
 	transition: .4s;
 }
 
-/
-@media only screen and (max-width: 768px) {
-    .menu_table th, .menu_table td {
-        display: block;
-        width: 100%;
-        text-align: left;
-        padding: 5px 15px;
-        box-sizing: border-box;
-    }
 
-  
-    .menu_table th.menu_a,
-    .menu_table th:not(.menu_logo):not(.menu_bars) {
-        display: none; 
+@media only screen and (max-width: 768px) {
+    .menu_table th, .menu_table td {
+        width: 100%;
+        text-align: left;
+        padding: 5px 15px;
+        box-sizing: border-box;
     }
 
-	
-	.menu_table th.menu_bars { 
+
+    .menu_a,
+    .menu_table th:not(.menu_logo):not(.menu_bars) {
+        display: none;
+    }
+
+
+	.menu_table th.menu_bars {
 		display: flex;
-        justify-content: flex-end; 
-        padding-right: 15px; 
+        justify-content: flex-end;
+        padding-right: 13px;
 	}
 
+    .menu_logo {
+        font-size: 26px;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+    }
 
-    .menu_logo {
-        font-size: 26px;
-        text-align: center;
-        width: 100%;
-        padding-bottom: 10px;
-        box-sizing: border-box;
-    }
+    .menu_a {
+        font-size: 18px;
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+    }
 
-    .menu_a {
-        font-size: 18px;
-        display: block;
-        width: 100%;
-        padding: 5px 0;
-    }
+    #creForm {
+        font-size: 18px;
+    }
 
-    #creForm {
-        font-size: 18px;
-    }
-
-    .main_table td, .main_table th {
-        padding: 10px 15px;
-    }
+    .main_table td, .main_table th {
+        padding: 10px 15px;
+    }
 }
 
 
 @media only screen and (max-width: 480px) {
-    .    .menu_table th.menu_a,
+        .menu_table th.menu_a,
     .menu_table th:not(.menu_logo):not(.menu_bars) {
-        display: none; 
+        display: none;
     }
     .menu_logo {
         font-size: 22px;
@@ -237,46 +232,44 @@ img {
 
 <body>
 <div style="min-height: 80px;"></div> <div class="main_table_wrapper">
-  <table class="main_table">
-    <tr>
-      <td colspan="3" style="padding: 0;">
-        <table class="menu_table">
-          <tr>
-            <th width="264" height="58" class="menu_logo" scope="col">NDREAM</th>
-            <th width="264" height="58" class="menu_bars" scope="col"><i class="fa-solid fa-bars"></i></th>
-            <th width="354" scope="col" class="menu_a"> <a class="menu_a" href="#">หน้าเเรก</a></th>
-            <th width="112" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
-            <th width="99" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
-            <th width="156" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
-            <th width="108" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3"> <img src="banner1.png" alt="Banner Image"/>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-      <h3>กระทู้ยอดนิยม</h3></td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
-         
-        </p>
-      </td>
-    </tr>
-  </table>
+    <table class="main_table">
+        <tr>
+            <td colspan="3" style="padding: 0;">
+                <table class="menu_table">
+                    <tr>
+                        <th width="233" height="58" class="menu_logo" scope="col">NDREAM</th>
+                        <th width="406" height="58" class="menu_bars" scope="col"><i class="fa-solid fa-bars"></i></th>
+                        <th width="114" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
+                        <th width="111" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
+                        <th width="93" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
+                        <th width="155" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
+                        <th width="110" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"> <img src="img/banner1.png" alt="Banner Image"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+            <h3>กระทู้ยอดนิยม</h3></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
+
+                </p>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <a href="#" class="totop">^</a>
 
 <script>
-
 bars.Document.getElementsById("z")
-
 </script>
 
 </body>
