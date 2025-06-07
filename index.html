@@ -168,42 +168,53 @@ img {
 
 /
 @media only screen and (max-width: 768px) {
-    .menu_table th, .menu_table td {
-        display: block; 
-        width: 100%;
-        text-align: left; 
-        padding: 5px 15px;
-        box-sizing: border-box; 
+    .menu_table th, .menu_table td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 5px 15px;
+        box-sizing: border-box;
+    }
+
+  
+    .menu_table th.menu_a,
+    .menu_table th:not(.menu_logo):not(.menu_bars) {
+        display: none; 
     }
+
 	
-	.menu_table th.menu_bars {
+	.menu_table th.menu_bars { 
 		display: flex;
+        justify-content: flex-end; 
+        padding-right: 15px; 
 	}
-	
-    .menu_logo {
-        font-size: 26px; 
-        text-align: center; 
-        width: 100%;
-        padding-bottom: 10px;
-        box-sizing: border-box;
+
+        display: none;
     }
 
-    .menu_a {
-        font-size: 18px; 
-        display: block; 
-        width: 100%;
-        padding: 5px 0; 
-    }
 
-   
-    #creForm {
- 
-        font-size: 18px;
-    }
-	
-    .main_table td, .main_table th {
-        padding: 10px 15px;
-    }
+    .menu_logo {
+        font-size: 26px;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .menu_a {
+        font-size: 18px;
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    #creForm {
+        font-size: 18px;
+    }
+
+    .main_table td, .main_table th {
+        padding: 10px 15px;
+    }
 }
 
 
