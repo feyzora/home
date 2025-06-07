@@ -72,12 +72,14 @@ body {
 .menu_bars {
 	font-size: 25px;
 	color: #111;
-	display: none;
 	cursor: pointer;
 	align-items: center;
 	justify-content: right;
 	padding: 0 20px;
 	right: 15px;
+	@media only screen and (min-width: 480px) {
+		display: none;
+	}
 }
 
 .menu_bars:hover {
@@ -175,16 +177,10 @@ img {
     }
 	
 	.menu_bars {
-		display: flex;
-		right: 0;
-		
+		display: flex;	
 	}
 	
 	
-
-
-
-
     .menu_table th:nth-child(2), 
     .menu_table td:nth-child(2) { 
         display: none;
@@ -255,7 +251,7 @@ img {
       </td>
     </tr>
     <tr>
-      <td colspan="3"> <img src="banner1.png" alt="Banner Image"/>
+      <td colspan="3"> <img src="img/banner1.png" alt="Banner Image"/>
       </td>
     </tr>
     <tr>
