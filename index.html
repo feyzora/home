@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NDREAM</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
@@ -19,104 +21,113 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* ป้องกัน scrollbar แนวนอนที่ไม่ต้องการ */
 }
 
-/* ส่วนนี้จะช่วยให้องค์ประกอบต่างๆ ยืดหยุ่นมากขึ้น ไม่ได้ใช้ table สำหรับ layout แล้ว */
-.container {
-    max-width: 1260px; /* กำหนดความกว้างสูงสุดของเนื้อหาหลัก */
+/* --- ตารางและเซลล์หลัก (Table and Cells) --- */
+/* กำหนดให้ตารางหลักสามารถขยายและหดได้ */
+.main_table_wrapper {
+    width: 100%; /* ห่อหุ้มตารางหลัก */
+    max-width: 1260px; /* ความกว้างสูงสุดที่เหมาะสม */
     margin: 0 auto; /* จัดกึ่งกลาง */
-    padding: 0 15px; /* เพิ่ม padding ด้านข้างสำหรับหน้าจอเล็ก */
 }
 
-/* --- Menu Bar --- */
-.menu_bar {
-    background-color: #fcfcfd;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-    top: 0;
-    left: 0;
-    z-index: 5;
-    position: fixed;
-    width: 100%;
-    display: flex; /* ใช้ Flexbox สำหรับจัดวางเมนู */
-    justify-content: space-between; /* กระจายองค์ประกอบไปคนละฝั่ง */
-    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
-    padding: 10px 20px; /* เพิ่ม padding ให้เมนู */
-    box-sizing: border-box; /* ให้ padding ไม่เพิ่มขนาดรวม */
+.main_table {
+    width: 100%; /* ให้ตารางยืดเต็มความกว้างของ Wrapper */
+    border-collapse: collapse; /* ไม่มีเส้นขอบระหว่างเซลล์ */
 }
 
-.menu_logo {
-    font-family: "Mitr", sans-serif;
-    font-size: 30px;
-    font-weight: 500;
-    color: #F00;
-    text-shadow: 0 6px 3px rgba(0, 0, 0, .1);
-    white-space: nowrap; /* ป้องกันโลโก้ขึ้นบรรทัดใหม่ */
+.main_table td, .main_table th {
+    /* กำหนด padding เริ่มต้นสำหรับเซลล์ */
+    padding: 10px;
+    vertical-align: top; /* จัดชิดด้านบน */
 }
 
-.nav_links {
-    display: flex; /* ใช้ Flexbox สำหรับลิงก์เมนู */
-    gap: 30px; /* ระยะห่างระหว่างลิงก์ */
+
+/* --- Menu Bar (ยังคงใช้ table แต่ปรับให้ responsive ได้) --- */
+.menu_table {
+	background-color: #fcfcfd;
+	box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
+	top: 0;
+	left: 0;
+	z-index: 5;
+	position: fixed;
+	width: 100%;
+    /* border-collapse: collapse; */ /* บางครั้ง Dreamweaver อาจเพิ่ม border-collapse ไปยัง table โดยอัตโนมัติ */
+}
+
+.menu_table td, .menu_table th {
+    padding: 10px; /* เพิ่ม padding ให้เซลล์เมนู */
+    vertical-align: middle;
+    text-align: center; /* จัดกึ่งกลางข้อความในเซลล์เมนู */
+    white-space: nowrap; /* ป้องกันไม่ให้ข้อความขึ้นบรรทัดใหม่ */
 }
 
 .menu_a {
-    font-family: "Mitr", sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: #111;
-    text-decoration: none;
-    white-space: nowrap; /* ป้องกันลิงก์ขึ้นบรรทัดใหม่ */
+	font-family: "Mitr", sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	color: #111;
+	text-decoration: none;
 }
 
 .menu_a:hover {
-    color: #F00;
-    transition: .4s;
+	color: #F00;
+	transition: .4s;
 }
 
 .fa-solid.fa-circle-plus {
-    color: #111;
-    margin-right: 5px;
+	color: #111;
+    margin-right: 5px; /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
 }
 
 .menu_a:hover .fa-solid.fa-circle-plus {
-    color: #F00;
+	color: #F00;
+}
+
+.menu_logo {
+	font-family: "Mitr", sans-serif;
+	font-size: 30px;
+	font-weight: 500;
+	color: #F00;
+	text-shadow: 0 6px 3px rgba(0, 0, 0, .1);
 }
 
 /* --- Scroll to Top Button --- */
 .totop {
-    font-size: 34px;
-    background-color: red;
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    border-radius: 100px;
-    position: fixed;
-    display: flex;
-    bottom: 20px; /* ปรับตำแหน่งให้สูงขึ้นเล็กน้อย */
-    right: 20px; /* ปรับตำแหน่งให้เข้ามาเล็กน้อย */
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-    transition: .4s;
-    text-decoration: none;
+	font-size: 34px;
+	background-color: red;
+	color: #fff;
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	position: fixed;
+	display: flex;
+	bottom: 20px;
+	right: 20px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
+	transition: .4s;
+	text-decoration: none;
 }
 
 .totop:hover {
-    font-size: 35px;
-    background-color: #fff;
-    color: #F00;
-    bottom: 25px; /* ปรับตำแหน่งให้สูงขึ้นเล็กน้อยเมื่อ hover */
-    transition: .4s;
-    border: 1px solid #000;
+	font-size: 35px;
+	background-color: #fff;
+	color: #F00;
+	bottom: 25px;
+	transition: .4s;
+	border: 1px solid #000;
 }
 
 /* --- Images --- */
 img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    display: block; /* ทำให้รูปภาพไม่เหลือช่องว่างด้านล่าง */
-    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+	max-width: 100%;
+	height: auto;
+	border-radius: 20px;
+    display: block; /* แก้ปัญหาช่องว่างใต้รูปภาพ */
 }
 
 /* --- Scrollbar (คงเดิม) --- */
@@ -140,81 +151,103 @@ img {
 }
 
 /* --- Media Queries (สำหรับมือถือ) --- */
+/* ปรับหน้าจอเล็กๆ เช่น แท็บเล็ตและมือถือ */
 @media only screen and (max-width: 768px) {
-    /* ปรับขนาดฟอนต์เมนูให้เล็กลงเล็กน้อยสำหรับแท็บเล็ต */
-    .menu_a {
-        font-size: 18px;
+    /* ทำให้แต่ละเซลล์ตารางของเมนูขึ้นบรรทัดใหม่ */
+    .menu_table th, .menu_table td {
+        display: block; /* ทำให้แต่ละเซลล์ประพฤติเหมือน div */
+        width: 100%; /* ให้กินพื้นที่เต็มความกว้าง */
+        text-align: left; /* จัดชิดซ้าย */
+        padding: 5px 15px; /* ลด padding */
+        box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่เพิ่มขนาดรวม */
     }
+
+    /* ซ่อนเซลล์ว่างๆ ในเมนูที่เคยใช้เป็น spacer */
+    .menu_table th:nth-child(2), /* ถ้ามี th ที่เป็น spacer */
+    .menu_table td:nth-child(2) { /* ถ้ามี td ที่เป็น spacer */
+        display: none;
+    }
+
     .menu_logo {
-        font-size: 26px;
+        font-size: 26px; /* ปรับขนาดโลโก้ */
+        text-align: center; /* จัดกึ่งกลางโลโก้เมื่ออยู่คนเดียว */
+        width: 100%;
+        padding-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+        box-sizing: border-box;
+    }
+
+    .menu_a {
+        font-size: 18px; /* ปรับขนาดฟอนต์เมนู */
+        display: block; /* ทำให้ลิงก์เมนูแต่ละอันขึ้นบรรทัดใหม่ */
+        width: 100%;
+        padding: 5px 0; /* เพิ่ม padding แนวตั้งเล็กน้อย */
+    }
+
+    /* ซ่อนปุ่ม "ตั้งกระทู้" หรือเปลี่ยนเป็นไอคอนหากเวลาไม่อำนวย */
+    #creForm {
+        /* อาจจะซ่อนไปเลย หรือเปลี่ยนเป็นแค่ไอคอน */
+        /* display: none; */
+        font-size: 18px; /* ปรับขนาดฟอนต์ */
+    }
+
+    /* ปรับ padding ของตารางหลักเมื่ออยู่บนจอเล็ก */
+    .main_table td, .main_table th {
+        padding: 10px 15px; /* เพิ่ม padding ด้านข้างสำหรับเนื้อหา */
     }
 }
 
-@media only screen and (max-width: 600px) {
-    /* สำหรับหน้าจอที่เล็กลงอีก */
-    .menu_bar {
-        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
-        align-items: flex-start; /* ชิดซ้าย */
-        padding: 10px;
-    }
-
-    .nav_links {
-        flex-direction: column; /* ลิงก์เรียงลงมา */
-        width: 100%;
-        gap: 10px; /* ลดระยะห่าง */
-        margin-top: 10px;
-        align-items: flex-start; /* ชิดซ้าย */
-    }
-
+/* สำหรับมือถือที่เล็กมากๆ */
+@media only screen and (max-width: 480px) {
     .menu_a {
         font-size: 16px;
-        padding: 5px 0;
     }
     .menu_logo {
         font-size: 22px;
-        margin-bottom: 10px;
     }
-}
-
-@media only screen and (max-width: 480px) {
-    .menu_a {
-        font-size: 14px;
-    }
-    .menu_logo {
-        font-size: 20px;
-    }
-    .container {
-        padding: 0 10px; /* ลด padding สำหรับมือถือที่เล็กมากๆ */
+    .main_table td, .main_table th {
+        padding: 8px 10px;
     }
 }
 
 </style>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-
 </head>
 
 <body>
-<div class="menu_bar">
-    <div class="menu_logo">NDREAM</div>
-    <div class="nav_links">
-        <a class="menu_a" href="#">หน้าเเรก</a>
-        <a class="menu_a" href="#">เกี่ยวกับเรา</a>
-        <a class="menu_a" href="#">ประวัติ</a>
-        <a class="menu_a" href="#">บทความยอดอิต</a>
-        <a class="menu_a" id="creForm" href="#"><i class="fa-solid fa-circle-plus"></i> ตั้งกระทู้</a>
-    </div>
-</div>
-
-<div style="height: 80px;"></div> <div class="container">
-  <div>
-    <img src="banner1.png" alt="Banner Image"/>
-  </div>
-  <h3>กระทู้ยอดนิยม</h3>
-  <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
-    นี่คือส่วนเนื้อหาตัวอย่าง เพื่อให้มีพื้นที่ให้ Scroll ได้ <br>
-    คุณสามารถใส่เนื้อหา กระทู้ หรือส่วนอื่นๆ ของเว็บไว้ที่นี่
-  </p>
+<div style="min-height: 80px;"></div> <div class="main_table_wrapper">
+  <table class="main_table">
+    <tr>
+      <td colspan="3" style="padding: 0;">
+        <table class="menu_table">
+          <tr>
+            <th width="264" height="58" class="menu_logo" scope="col">NDREAM</th>
+            <th width="354" scope="col" class="menu_spacer">&nbsp;</th> <th width="122" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
+            <th width="112" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
+            <th width="99" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
+            <th width="156" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
+            <th width="108" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3"> <img src="banner1.png" alt="Banner Image"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <h3>กระทู้ยอดนิยม</h3>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
+          นี่คือส่วนเนื้อหาตัวอย่าง เพื่อให้มีพื้นที่ให้ Scroll ได้ <br>
+          คุณสามารถใส่เนื้อหา กระทู้ หรือส่วนอื่นๆ ของเว็บไว้ที่นี่
+        </p>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <a href="#" class="totop">^</a>
