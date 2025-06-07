@@ -21,30 +21,27 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* ป้องกัน scrollbar แนวนอนที่ไม่ต้องการ */
+    overflow-x: hidden; 
 }
 
-/* --- ตารางและเซลล์หลัก (Table and Cells) --- */
-/* กำหนดให้ตารางหลักสามารถขยายและหดได้ */
 .main_table_wrapper {
-    width: 100%; /* ห่อหุ้มตารางหลัก */
-    max-width: 1260px; /* ความกว้างสูงสุดที่เหมาะสม */
-    margin: 0 auto; /* จัดกึ่งกลาง */
+    width: 100%; 
+    max-width: 1260px; 
+    margin: 0 auto; 
 }
 
 .main_table {
-    width: 100%; /* ให้ตารางยืดเต็มความกว้างของ Wrapper */
-    border-collapse: collapse; /* ไม่มีเส้นขอบระหว่างเซลล์ */
+    width: 100%; 
+    border-collapse: collapse; 
+	border: none;
 }
 
 .main_table td, .main_table th {
-    /* กำหนด padding เริ่มต้นสำหรับเซลล์ */
     padding: 10px;
-    vertical-align: top; /* จัดชิดด้านบน */
+    vertical-align: top;
 }
 
 
-/* --- Menu Bar (ยังคงใช้ table แต่ปรับให้ responsive ได้) --- */
 .menu_table {
 	background-color: #fcfcfd;
 	box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
@@ -53,14 +50,14 @@ body {
 	z-index: 5;
 	position: fixed;
 	width: 100%;
-    /* border-collapse: collapse; */ /* บางครั้ง Dreamweaver อาจเพิ่ม border-collapse ไปยัง table โดยอัตโนมัติ */
+
 }
 
 .menu_table td, .menu_table th {
-    padding: 10px; /* เพิ่ม padding ให้เซลล์เมนู */
+    padding: 10px; 
     vertical-align: middle;
-    text-align: center; /* จัดกึ่งกลางข้อความในเซลล์เมนู */
-    white-space: nowrap; /* ป้องกันไม่ให้ข้อความขึ้นบรรทัดใหม่ */
+    text-align: center; 
+    white-space: nowrap;
 }
 
 .menu_a {
@@ -71,6 +68,12 @@ body {
 	text-decoration: none;
 }
 
+.menu_bars {
+	font-size: 24px;
+	color: #111;
+	display: none;
+}
+
 .menu_a:hover {
 	color: #F00;
 	transition: .4s;
@@ -78,7 +81,7 @@ body {
 
 .fa-solid.fa-circle-plus {
 	color: #111;
-    margin-right: 5px; /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
+    margin-right: 5px; 
 }
 
 .menu_a:hover .fa-solid.fa-circle-plus {
@@ -93,7 +96,7 @@ body {
 	text-shadow: 0 6px 3px rgba(0, 0, 0, .1);
 }
 
-/* --- Scroll to Top Button --- */
+
 .totop {
 	font-size: 34px;
 	background-color: red;
@@ -122,15 +125,15 @@ body {
 	border: 1px solid #000;
 }
 
-/* --- Images --- */
+
 img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 20px;
-    display: block; /* แก้ปัญหาช่องว่างใต้รูปภาพ */
+    display: block;
+	width: 100%;
 }
 
-/* --- Scrollbar (คงเดิม) --- */
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -150,53 +153,57 @@ img {
 	transition: .4s;
 }
 
-/* --- Media Queries (สำหรับมือถือ) --- */
-/* ปรับหน้าจอเล็กๆ เช่น แท็บเล็ตและมือถือ */
+/
 @media only screen and (max-width: 768px) {
-    /* ทำให้แต่ละเซลล์ตารางของเมนูขึ้นบรรทัดใหม่ */
     .menu_table th, .menu_table td {
-        display: block; /* ทำให้แต่ละเซลล์ประพฤติเหมือน div */
-        width: 100%; /* ให้กินพื้นที่เต็มความกว้าง */
-        text-align: left; /* จัดชิดซ้าย */
-        padding: 5px 15px; /* ลด padding */
-        box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่เพิ่มขนาดรวม */
+        display: block; 
+        width: 100%;
+        text-align: left; 
+        padding: 5px 15px;
+        box-sizing: border-box; 
     }
+	
+	.menu_bars {
+		display: flex;
+	}
+	
+	
 
-    /* ซ่อนเซลล์ว่างๆ ในเมนูที่เคยใช้เป็น spacer */
-    .menu_table th:nth-child(2), /* ถ้ามี th ที่เป็น spacer */
-    .menu_table td:nth-child(2) { /* ถ้ามี td ที่เป็น spacer */
+
+
+
+    .menu_table th:nth-child(2), 
+    .menu_table td:nth-child(2) { 
         display: none;
     }
 
     .menu_logo {
-        font-size: 26px; /* ปรับขนาดโลโก้ */
-        text-align: center; /* จัดกึ่งกลางโลโก้เมื่ออยู่คนเดียว */
+        font-size: 26px; 
+        text-align: center; 
         width: 100%;
-        padding-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+        padding-bottom: 10px;
         box-sizing: border-box;
     }
 
     .menu_a {
-        font-size: 18px; /* ปรับขนาดฟอนต์เมนู */
-        display: block; /* ทำให้ลิงก์เมนูแต่ละอันขึ้นบรรทัดใหม่ */
+        font-size: 18px; 
+        display: block; 
         width: 100%;
-        padding: 5px 0; /* เพิ่ม padding แนวตั้งเล็กน้อย */
+        padding: 5px 0; 
     }
 
-    /* ซ่อนปุ่ม "ตั้งกระทู้" หรือเปลี่ยนเป็นไอคอนหากเวลาไม่อำนวย */
+   
     #creForm {
-        /* อาจจะซ่อนไปเลย หรือเปลี่ยนเป็นแค่ไอคอน */
-        /* display: none; */
-        font-size: 18px; /* ปรับขนาดฟอนต์ */
+ 
+        font-size: 18px;
     }
-
-    /* ปรับ padding ของตารางหลักเมื่ออยู่บนจอเล็ก */
+	
     .main_table td, .main_table th {
-        padding: 10px 15px; /* เพิ่ม padding ด้านข้างสำหรับเนื้อหา */
+        padding: 10px 15px;
     }
 }
 
-/* สำหรับมือถือที่เล็กมากๆ */
+
 @media only screen and (max-width: 480px) {
     .menu_a {
         font-size: 16px;
@@ -207,6 +214,9 @@ img {
     .main_table td, .main_table th {
         padding: 8px 10px;
     }
+		.menu_bars {
+		display: flex;
+	}
 }
 
 </style>
@@ -221,7 +231,7 @@ img {
         <table class="menu_table">
           <tr>
             <th width="264" height="58" class="menu_logo" scope="col">NDREAM</th>
-            <th width="354" scope="col" class="menu_spacer">&nbsp;</th> <th width="122" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
+            <th width="354" scope="col" class="menu_bars"><i class="fa-solid fa-bars"></i></th> <th width="122" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
             <th width="112" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
             <th width="99" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
             <th width="156" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
@@ -231,7 +241,7 @@ img {
       </td>
     </tr>
     <tr>
-      <td colspan="3"> <img src="banner1.png" alt="Banner Image"/>
+      <td colspan="3"> <img src="img/banner1.png" alt="Banner Image"/>
       </td>
     </tr>
     <tr>
@@ -242,8 +252,7 @@ img {
     <tr>
       <td colspan="3">
         <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
-          นี่คือส่วนเนื้อหาตัวอย่าง เพื่อให้มีพื้นที่ให้ Scroll ได้ <br>
-          คุณสามารถใส่เนื้อหา กระทู้ หรือส่วนอื่นๆ ของเว็บไว้ที่นี่
+         
         </p>
       </td>
     </tr>
