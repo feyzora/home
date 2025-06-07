@@ -69,7 +69,7 @@ body {
 	text-decoration: none;
 }
 
-.menu_table th.menu_bars {
+.menu_bars {
 	font-size: 25px;
 	color: #111;
 	cursor: pointer;
@@ -77,6 +77,7 @@ body {
 	justify-content: right;
 	padding: 0 20px;
 	right: 15px;
+	display: none;
 }
 
 .menu_bars:hover {
@@ -173,16 +174,24 @@ img {
     }
 
 
-    .menu_a,
-    .menu_table th:not(.menu_logo):not(.menu_bars) {
-        display: none;
+    .menu_a {
+		flex-direction: colum;
+		position: relative;
+		align-items: center;
+		font-size: 18px;
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+		
     }
 
-
 	.menu_table th.menu_bars {
-		display: flex;
+		display: block;
         justify-content: flex-end;
         padding-right: 13px;
+		position: absolute;
+		top: 7px;
+		left: 340px;
 	}
 
     .menu_logo {
@@ -191,14 +200,9 @@ img {
         width: 100%;
         padding-bottom: 10px;
         box-sizing: border-box;
+		display: flex;
     }
 
-    .menu_a {
-        font-size: 18px;
-        display: block;
-        width: 100%;
-        padding: 5px 0;
-    }
 
     #creForm {
         font-size: 18px;
@@ -211,9 +215,11 @@ img {
 
 
 @media only screen and (max-width: 480px) {
-        .menu_table th.menu_a,
-    .menu_table th:not(.menu_logo):not(.menu_bars) {
-        display: none;
+        .menu_table th.menu_a,th:not(.menu_logo):not(.menu_bars) {
+		flex-direction: colum;
+		position: relative;
+		align-items: center;
+		display: none;
     }
     .menu_logo {
         font-size: 22px;
@@ -238,12 +244,14 @@ img {
                 <table class="menu_table">
                     <tr>
                         <th width="233" height="58" class="menu_logo" scope="col">NDREAM</th>
-                        <th width="406" height="58" class="menu_bars" scope="col"><i class="fa-solid fa-bars"></i></th>
+                        <th width="406" height="58" class="menu_bars" scope="col"><i onclick="togglemenu()" id="bars" class="fa-solid fa-bars"></i></th>
+                        <div id="menu" class="menu_a" style="display: none;">
                         <th width="114" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
                         <th width="111" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
                         <th width="93" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
                         <th width="155" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
                         <th width="110" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
+                        </div>
                     </tr>
                 </table>
             </td>
@@ -269,7 +277,20 @@ img {
 <a href="#" class="totop">^</a>
 
 <script>
-bars.Document.getElementsById("z")
+function togglemenu(){
+	if (menu.style.display === "flex") {
+		menu.style.display = "none";
+	} else {
+	    menu.style.display = "flex";	
+	}
+	
+}
+
+const menu = Document.getElementsById("menu");
+const bars = Document.getElementsById("bars");
+
+
+
 </script>
 
 </body>
