@@ -50,6 +50,7 @@ body {
 	z-index: 5;
 	position: fixed;
 	width: 100%;
+	justify-content: space-between;
 
 }
 
@@ -68,10 +69,23 @@ body {
 	text-decoration: none;
 }
 
-.menu_bars {
-	font-size: 24px;
-	color: #111;
+	.menu_bars {
+		font-size: 34px;
+	cursor: pointer;
+	transition: .4s;
+}
+
+	@media only screen and (min-width: 480px) {
+	.menu_bars {
 	display: none;
+}
+	}
+
+.menu_bars:hover {
+	color: #F00;
+	transition: .4s;
+}
+	
 }
 
 .menu_a:hover {
@@ -163,9 +177,6 @@ img {
         box-sizing: border-box; 
     }
 	
-	.menu_bars {
-		display: flex;
-	}
 	
 	
 
@@ -231,7 +242,8 @@ img {
         <table class="menu_table">
           <tr>
             <th width="264" height="58" class="menu_logo" scope="col">NDREAM</th>
-            <th width="354" scope="col" class="menu_bars"><i class="fa-solid fa-bars"></i></th> <th width="122" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
+             <th width="354" scope="col" class="menu_bars"></th> <th width="122" scope="col"><a class="menu_a" href="#"><i class="fa-solid fa-bars"></i></a></th>
+            <th width="354" scope="col" class="menu_a"></th> <th width="122" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
             <th width="112" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
             <th width="99" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
             <th width="156" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
@@ -241,13 +253,12 @@ img {
       </td>
     </tr>
     <tr>
-      <td colspan="3"> <img src="banner1.png" alt="Banner Image"/>
+      <td colspan="3"> <img src="img/banner1.png" alt="Banner Image"/>
       </td>
     </tr>
     <tr>
       <td colspan="3">
-        <h3>กระทู้ยอดนิยม</h3>
-      </td>
+      <h3>กระทู้ยอดนิยม</h3></td>
     </tr>
     <tr>
       <td colspan="3">
@@ -260,6 +271,13 @@ img {
 </div>
 
 <a href="#" class="totop">^</a>
+
+
+<script>
+
+bars.Document.getElementsById("z")
+
+</script>
 
 </body>
 </html>
