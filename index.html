@@ -13,95 +13,113 @@ html {
 }
 
 body {
- font-family: "Mitr", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    font-family: "Mitr", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-table, tr, th, td {
-	border: none;
-	border-collapse: collapse;
+/* ส่วนนี้จะช่วยให้องค์ประกอบต่างๆ ยืดหยุ่นมากขึ้น ไม่ได้ใช้ table สำหรับ layout แล้ว */
+.container {
+    max-width: 1260px; /* กำหนดความกว้างสูงสุดของเนื้อหาหลัก */
+    margin: 0 auto; /* จัดกึ่งกลาง */
+    padding: 0 15px; /* เพิ่ม padding ด้านข้างสำหรับหน้าจอเล็ก */
+}
+
+/* --- Menu Bar --- */
+.menu_bar {
+    background-color: #fcfcfd;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
+    top: 0;
+    left: 0;
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    display: flex; /* ใช้ Flexbox สำหรับจัดวางเมนู */
+    justify-content: space-between; /* กระจายองค์ประกอบไปคนละฝั่ง */
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    padding: 10px 20px; /* เพิ่ม padding ให้เมนู */
+    box-sizing: border-box; /* ให้ padding ไม่เพิ่มขนาดรวม */
+}
+
+.menu_logo {
+    font-family: "Mitr", sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #F00;
+    text-shadow: 0 6px 3px rgba(0, 0, 0, .1);
+    white-space: nowrap; /* ป้องกันโลโก้ขึ้นบรรทัดใหม่ */
+}
+
+.nav_links {
+    display: flex; /* ใช้ Flexbox สำหรับลิงก์เมนู */
+    gap: 30px; /* ระยะห่างระหว่างลิงก์ */
 }
 
 .menu_a {
-	 font-family: "Mitr", sans-serif;
-	font-size: 20px;
-	font-weight: 500;
-	color: #111;
-	text-decoration: none;
+    font-family: "Mitr", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+    text-decoration: none;
+    white-space: nowrap; /* ป้องกันลิงก์ขึ้นบรรทัดใหม่ */
 }
 
 .menu_a:hover {
-	 font-family: "Mitr", sans-serif;
-	font-size: 20px;
-	font-weight: 500;
-	color: #F00;
-	transition: .4s;
+    color: #F00;
+    transition: .4s;
 }
 
 .fa-solid.fa-circle-plus {
-	color: #111;
+    color: #111;
+    margin-right: 5px;
 }
 
 .menu_a:hover .fa-solid.fa-circle-plus {
-	color: #F00;
+    color: #F00;
 }
 
-.menu_logo {
-	 font-family: "Mitr", sans-serif;
-	font-size: 30px;
-	font-weight: 500;
-	color: #F00;
-	text-shadow: 0 6px 3px rgba(0, 0, 0, .1);
-}
-
-.menu_table {
-	background-color: #fcfcfd;
-	box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-	top: 0;
-	left: 0;
-	z-index: 5;
-	position: fixed;
-	width: 100%;
-}
-
+/* --- Scroll to Top Button --- */
 .totop {
-	font-size: 34px;
-	background-color: red;
-	color: #fff;
-	width: 50px;
-	height: 50px;
-	border-radius: 100px;
-	position: fixed;
-	display: flex;
-	bottom: 5px;
-	right: 3px;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-	transition: .4s;
-	text-decoration: none;
+    font-size: 34px;
+    background-color: red;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    position: fixed;
+    display: flex;
+    bottom: 20px; /* ปรับตำแหน่งให้สูงขึ้นเล็กน้อย */
+    right: 20px; /* ปรับตำแหน่งให้เข้ามาเล็กน้อย */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
+    transition: .4s;
+    text-decoration: none;
 }
 
 .totop:hover {
-	font-size: 35px;
-	background-color: #fff;
-	color: #F00;
-	bottom: 10px;
-	transition: .4s;
-	border: 1px solid #000;
+    font-size: 35px;
+    background-color: #fff;
+    color: #F00;
+    bottom: 25px; /* ปรับตำแหน่งให้สูงขึ้นเล็กน้อยเมื่อ hover */
+    transition: .4s;
+    border: 1px solid #000;
 }
 
+/* --- Images --- */
 img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 20px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block; /* ทำให้รูปภาพไม่เหลือช่องว่างด้านล่าง */
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
 }
 
+/* --- Scrollbar (คงเดิม) --- */
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -119,18 +137,55 @@ img {
 ::-webkit-scrollbar-thumb:hover {
 	background-color: #F00;
 	transition: .4s;
+}
+
+/* --- Media Queries (สำหรับมือถือ) --- */
+@media only screen and (max-width: 768px) {
+    /* ปรับขนาดฟอนต์เมนูให้เล็กลงเล็กน้อยสำหรับแท็บเล็ต */
+    .menu_a {
+        font-size: 18px;
+    }
+    .menu_logo {
+        font-size: 26px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* สำหรับหน้าจอที่เล็กลงอีก */
+    .menu_bar {
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        align-items: flex-start; /* ชิดซ้าย */
+        padding: 10px;
+    }
+
+    .nav_links {
+        flex-direction: column; /* ลิงก์เรียงลงมา */
+        width: 100%;
+        gap: 10px; /* ลดระยะห่าง */
+        margin-top: 10px;
+        align-items: flex-start; /* ชิดซ้าย */
+    }
+
+    .menu_a {
+        font-size: 16px;
+        padding: 5px 0;
+    }
+    .menu_logo {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
-	.menu_a {
-		font-size: 16px;
-	}
-	.menu_logo {
-		font-size: 24px;
-	}
-	.menu_table th {
-		padding: 5px;
-	}
+    .menu_a {
+        font-size: 14px;
+    }
+    .menu_logo {
+        font-size: 20px;
+    }
+    .container {
+        padding: 0 10px; /* ลด padding สำหรับมือถือที่เล็กมากๆ */
+    }
 }
 
 </style>
@@ -140,193 +195,29 @@ img {
 </head>
 
 <body>
-<table width="100%" border="1">
-  <tr>
-    <td><table class="menu_table" width="100%" height="64" border="1">
-      <tr>
-        <th width="264" height="58" class="menu_logo" scope="col">NDREAM</th>
-        <th width="354" scope="col">&nbsp;</th>
-        <th width="122" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
-        <th width="112" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
-        <th width="99" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
-        <th width="156" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
-        <th width="108" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
-        </tr>
-    </table></td>
-  </tr>
-    <tr>
-    <td height="65">&nbsp;</td>
-  </tr>
-  <tr>
-    <td height="40"><img src="banner1.png" alt="Banner Image"/></td>
-  </tr>
-  <tr>
-    <td>กระทู้ยอดนิยม</td>
-  </tr>
-  <tr>
-    <td>
-<a href="#" class="totop">^</a></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-</body>
-</html>	text-decoration: none;
-}
+<div class="menu_bar">
+    <div class="menu_logo">NDREAM</div>
+    <div class="nav_links">
+        <a class="menu_a" href="#">หน้าเเรก</a>
+        <a class="menu_a" href="#">เกี่ยวกับเรา</a>
+        <a class="menu_a" href="#">ประวัติ</a>
+        <a class="menu_a" href="#">บทความยอดอิต</a>
+        <a class="menu_a" id="creForm" href="#"><i class="fa-solid fa-circle-plus"></i> ตั้งกระทู้</a>
+    </div>
+</div>
 
-.menu_a:hover {
-	 font-family: "Mitr", sans-serif;
-	font-size: 20px;
-	font-weight: 500;
-	color: #F00;
-	transition: .4s
-	.fa-solid fa-circle-plus {
-		color: #F00;
+<div style="height: 80px;"></div> <div class="container">
+  <div>
+    <img src="banner1.png" alt="Banner Image"/>
+  </div>
+  <h3>กระทู้ยอดนิยม</h3>
+  <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
+    นี่คือส่วนเนื้อหาตัวอย่าง เพื่อให้มีพื้นที่ให้ Scroll ได้ <br>
+    คุณสามารถใส่เนื้อหา กระทู้ หรือส่วนอื่นๆ ของเว็บไว้ที่นี่
+  </p>
+</div>
 
-	}
-}
+<a href="#" class="totop">^</a>
 
-
-.menu_logo {
-	 font-family: "Mitr", sans-serif;
-	font-size: 30px;
-	font-weight: 500;
-	color: #F00;
-	text-shadow: 0 6px 3px rgba(0, 0, 0, .1);
-}
-
-.menu_table {
-	background-color: #fcfcfd;
-	box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-	top: 0;
-	left: 0;
-	z-index: 5;
-	position: fixed;
-	width: 100%;
-}
-
-.totop {
-	font-size: 34px;
-	background-color: red;
-	color: #fff;
-	width: 50px;
-	height: 50px;
-	border-radius: 100px;
-	position: fixed;
-	display: flex;
-	bottom: 5px;
-	right: 3px;
-	justify-content: center;
-	cursor: pointer;
-	box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-	transition: .4s;
-	text-decoration: none;
-}
-
-.totop:hover {
-	font-size: 35px;
-	background-color: #fff;
-	color: #F00;
-	bottom: 10px;
-	transition: .4s;
-	border: 1px solid #000;
-}
-
-img {
-	border-radius: 20px;	
-}
-
-::-webkit-scrollbar {
-	width: 10px;
-	display:none;
-}
-
-::-webkit-scrollbar-track {
-	background-color: #fff;
-}
-
-
-::-webkit-scrollbar-thumb {
-	background-color: #fff;
-	border-radius: 25px;
-	right: -5px;
-	transition: .4s;
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-	background-color: #F00;
-	transition: .4s;
-}
-
-img {
-	width: 1260;
-	height: 850;	
-}
-
-@media only screen and (max-width: 480) {
-	.menu_a {
-		display: none;
-	}
-	body {
-		width: 480;
-	}
-	img {
-	width: 480;
-	height: 450;
-		
-	}
-}
-
-</style>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-
-</head>
-
-<body>
-<table width="1252" height="1446" border="1">
-  <tr>
-    <td><table class="menu_table" width="99%" height="64" border="1">
-      <tr>
-        <th width="264" height="58" class="menu_logo" scope="col">NDREAM</th>
-        <th width="354" scope="col">&nbsp;</th>
-        <th width="122" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
-        <th width="112" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
-        <th width="99" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
-        <th width="156" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
-        <th width="108" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
-        </tr>
-    </table></td>
-  </tr>
-    <tr>
-    <td height="65">&nbsp;</td>
-  </tr>
-  <tr>
-    <td height="40"><img src="banner1.png" width="1260" height="450" alt=""/></td>
-  </tr>
-  <tr>
-    <td>กระทู้ยอดนิยม</td>
-  </tr>
-  <tr>
-    <td><a href="#" class="totop">^</a></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
 </body>
 </html>
