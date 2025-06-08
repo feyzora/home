@@ -35,12 +35,14 @@ nav {
 	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 	position: fixed;
 	width: 100%;
+	z-index: 1000;
 	.nav-con {
 		display: flex;
 		justify-content: space-between;	
 		align-items: center;
 		height: auto;
 		position: relative;
+		padding: 15px 20px;
 		.logo {
 			p {
 				color: #F00;
@@ -64,8 +66,6 @@ nav {
 		}
 	}
 }
-
-
 
 img {
 	border-radius: 25px;	
@@ -91,6 +91,7 @@ img {
 	font-size: 1.4rem;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 	transition: .5s;
+	z-index: 999;
 }
 
 .totopbtn:hover {
@@ -104,66 +105,75 @@ img {
 }
 
 nav .container .nav-con .menu li a:hover {
-    color: #f00;
+ 	color: #f00;
 	transition: .3s;
-	
 }
 
 .toggleham {
-	display: inline-block;
-	position: absolute;
-  cursor: pointer;
-  right: 10px;
+	display: none;
+ 	cursor: pointer;
+ 	position: absolute;
+ 	right: 20px;
 }
 
 .toggleham:hover {
-  .bar1, .bar2, .bar3 {
-  background-color: #f00;
-  transition: 0.4s;
- }
+ 	.bar1, .bar2, .bar3 {
+ 	background-color: #f00;
+ 	transition: 0.4s;
+ 	}
 }
-
 
 .bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #000;
-  margin: 6px 0;
-  transition: 0.4s;
-  border-radius: 25px
-  
+ 	width: 35px;
+ 	height: 5px;
+ 	background-color: #000;
+ 	margin: 6px 0;
+ 	transition: 0.4s;
+ 	border-radius: 25px
 }
 
-@media only screen and (min-width: 768px){
-	.toggleham {
-		display: none;
-  
-  }
-  ul .menu {
-	display: flex;  
-  }
- }
-
-
 .change .bar1 {
-  transform: translate(0, 11px) rotate(-45deg);
+ 	transform: translate(0, 11px) rotate(-45deg);
 }
 
 .change .bar2 {opacity: 0;}
 
 .change .bar3 {
-  transform: translate(0, -11px) rotate(45deg);
+ 	transform: translate(0, -11px) rotate(45deg);
 }
 
 @media only screen and (max-width: 768px){
 	.toggleham {
 		display: inline-block;
-  
-  }
-  ul .menu {
-	flex-decoration: colum;
-	justify-content: flex-start;
-  }
+ 	}
+	nav .container .nav-con .menu {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: #fff;
+		box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+		padding: 10px 0;
+	}
+	nav .container .nav-con .menu li {
+		margin: 10px 0;
+		text-align: center;
+	}
+	nav .container .nav-con .menu.active {
+		display: flex;
+	}
+}
+
+@media only screen and (min-width: 769px){
+	nav .container .nav-con .menu {
+		display: flex;
+		flex-direction: row;
+	}
+	.toggleham {
+		display: none;
+	}
 }
 
 </style>
@@ -177,9 +187,9 @@ nav .container .nav-con .menu li a:hover {
 </div>
 
 <div class="toggleham" onclick="toggleham(this)">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
+ 	<div class="bar1"></div>
+ 	<div class="bar2"></div>
+ 	<div class="bar3"></div>
 </div>
 
 <ul class="menu">
@@ -192,67 +202,70 @@ nav .container .nav-con .menu li a:hover {
 </div>
 </nav>
 <table width="100%" height="421">
-  <tr>
-    <td><a class="totopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a></td>
-  </tr>
-  <tr>
-    <td><p>&nbsp;</p>
-    <p>&nbsp;</p></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><img src="img/banner1.png" alt="" width="100%" height="auto" /></td>
-  </tr>
-  <tr>
-    <td><p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
+ 	<tr>
+ 	 	<td><a class="totopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a></td>
+ 	</tr>
+ 	<tr>
+ 	 	<td><p>&nbsp;</p>
+ 	 	<p>&nbsp;</p></td>
+ 	</tr>
+ 	<tr>
+ 	 	<td>&nbsp;</td>
+ 	</tr>
+ 	<tr>
+ 	 	<td><img src="img/banner1.png" alt="" width="100%" height="auto" /></td>
+ 	</tr>
+ 	<tr>
+ 	 	<td><p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p>
+ 	 	<p>&nbsp;</p></td>
+ 	</tr>
+ 	<tr>
+ 	 	<td>&nbsp;</td>
+ 	</tr>
+ 	<tr>
+ 	 	<td>&nbsp;</td>
+ 	</tr>
+ 	<tr>
+ 	 	<td>&nbsp;</td>
+ 	</tr>
 </table>
 
 <script>
 function toggleham(el) {
-  el.classList.toggle("change");
+ 	el.classList.toggle("change");
+ 	const menu = document.querySelector('.nav-con .menu');
+ 	menu.classList.toggle('active');
 }
 </script>
 </body>
