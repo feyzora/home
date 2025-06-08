@@ -15,30 +15,30 @@ html {
 }
 
 body {
-    font-family: "Mitr", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+    font-family: "Mitr", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .main_table_wrapper {
-    width: 100%;
-    max-width: 1260px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
 }
 
 .main_table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 	border: none;
 }
 
 .main_table td, .main_table th {
-    padding: 10px;
-    vertical-align: top;
+    padding: 10px;
+    vertical-align: top;
 }
 
 
@@ -55,10 +55,10 @@ body {
 }
 
 .menu_table td, .menu_table th {
-    padding: 10px;
-    vertical-align: middle;
-    text-align: center;
-    white-space: nowrap;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .menu_a {
@@ -92,7 +92,7 @@ body {
 
 .fa-solid.fa-circle-plus {
 	color: #111;
-    margin-right: 5px;
+    margin-right: 5px;
 }
 
 .menu_a:hover .fa-solid.fa-circle-plus {
@@ -141,7 +141,7 @@ img {
 	max-width: 100%;
 	height: auto;
 	border-radius: 20px;
-    display: block;
+    display: block;
 	width: 100%;
 }
 
@@ -166,67 +166,93 @@ img {
 
 
 @media only screen and (max-width: 768px) {
-    .menu_table th, .menu_table td {
-        width: 100%;
-        text-align: left;
-        padding: 5px 15px;
-        box-sizing: border-box;
+    .menu_table th, .menu_table td {
+        width: 100%;
+        text-align: left;
+        padding: 5px 15px;
+        box-sizing: border-box;
+    }
+
+
+    .menu_table th:not(.menu_logo):not(.menu_bars) {
+        display: none;
     }
 
-
-    .menu_a {
-		flex-direction: colum;
+    .menu_a {
+		flex-direction: colum; 
 		position: relative;
 		align-items: center;
 		font-size: 18px;
-        display: block;
-        width: 100%;
-        padding: 5px 0;
+        display: block;
+        width: 100%;
+        padding: 5px 0;
 		
-    }
+    }
 
 	.menu_table th.menu_bars {
 		display: block;
-        justify-content: flex-end;
-        padding-right: 13px;
+        justify-content: flex-end;
+        padding-right: 13px;
 		position: absolute;
-		top: 7px;
-		left: 340px;
+		top: 20px;
+		right: 15px; 
+		left: 240px; 
 	}
 
-    .menu_logo {
-        font-size: 26px;
-        text-align: center;
-        width: 100%;
-        padding-bottom: 10px;
-        box-sizing: border-box;
+    .menu_logo {
+        font-size: 26px;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 10px;
+        box-sizing: border-box;
 		display: flex;
+    }
+
+    
+    #menu_links_wrapper { 
+        width: 100%;
+        text-align: left;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+        background-color: #fcfcfd;
+        left: 0;
+		display: none;
     }
 
-
-    #creForm {
-        font-size: 18px;
-    }
-
-    .main_table td, .main_table th {
+    #menu_links_wrapper a {
+        display: block;
         padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+				flex-direction: colum; 
     }
+
+    #menu_links_wrapper a:last-child {
+        border-bottom: none;
+    }
+
+
+    #creForm {
+        font-size: 18px;
+    }
+
+    .main_table td, .main_table th {
+        padding: 10px 15px;
+    }
 }
 
 
 @media only screen and (max-width: 480px) {
-        .menu_table th.menu_a,th:not(.menu_logo):not(.menu_bars) {
+        .menu_table th.menu_a,th:not(.menu_logo):not(.menu_bars) {
 		flex-direction: colum;
 		position: relative;
 		align-items: center;
 		display: none;
-    }
-    .menu_logo {
-        font-size: 22px;
-    }
-    .main_table td, .main_table th {
-        padding: 8px 10px;
-    }
+    }
+    .menu_logo {
+        font-size: 22px;
+    }
+    .main_table td, .main_table th {
+        padding: 8px 10px;
+    }
 		.menu_bars {
 		display: flex;
 	}
@@ -237,60 +263,64 @@ img {
 </head>
 
 <body>
-<div style="min-height: 80px;"></div> <div class="main_table_wrapper">
-    <table class="main_table">
-        <tr>
-            <td colspan="3" style="padding: 0;">
-                <table class="menu_table">
-                    <tr>
-                        <th width="233" height="58" class="menu_logo" scope="col">NDREAM</th>
-                        <th width="406" height="58" class="menu_bars" scope="col"><i onclick="togglemenu()" id="bars" class="fa-solid fa-bars"></i></th>
-                        <div id="menu" class="menu_a" style="display: none;">
-                        <th width="114" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
+<div style="min-height: 80px;"></div>
+<div class="main_table_wrapper">
+    <table class="main_table">
+        <tr>
+            <td colspan="3" style="padding: 0;">
+                <table class="menu_table">
+                    <tr>
+                        <th width="233" height="58" class="menu_logo" scope="col">NDREAM</th>
+                        <th width="406" height="58" class="menu_bars" scope="col"><i onclick="togglemenu()" id="bars" class="fa-solid fa-bars"></i></th>
+                        <th width="114" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
                         <th width="111" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
                         <th width="93" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
                         <th width="155" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
                         <th width="110" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
-                        </div>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3"> <img src="img/banner1.png" alt="Banner Image"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">
-            <h3>กระทู้ยอดนิยม</h3></td>
-        </tr>
-        <tr>
-            <td colspan="3">
-                <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
+                    </tr>
+                </table>
+                <div id="menu_links_wrapper">
+                    <a class="menu_a" href="#">หน้าเเรก</a>
+                    <a class="menu_a" href="#">เกี่ยวกับเรา</a>
+                    <a class="menu_a" href="#">ประวัติ</a>
+                    <a class="menu_a" href="#">บทความยอดอิต</a>
+                    <a class="menu_a" id="creForm" href="#"><i class="fa-solid fa-circle-plus"></i> ตั้งกระทู้</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"> <img src="img/banner1.png" alt="Banner Image"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+            <h3>กระทู้ยอดนิยม</h3></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
 
-                </p>
-            </td>
-        </tr>
-    </table>
+                </p>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <a href="#" class="totop">^</a>
 
 <script>
 function togglemenu(){
-	if (menu.style.display === "flex") {
-		menu.style.display = "none";
+    // เปลี่ยนมาใช้ 'menu_links_wrapper' แทน 'menu'
+	if (menuLinksWrapper.style.display === "flex") {
+		menuLinksWrapper.style.display = "none";
 	} else {
-	    menu.style.display = "flex";	
+	    menuLinksWrapper.style.display = "flex";	
 	}
-	
 }
 
-const menu = Document.getElementsById("menu");
-const bars = Document.getElementsById("bars");
-
-
-
+// แก้ไขชื่อตัวแปรให้ตรงกับ ID ใหม่และใช้ getElementById
+const menuLinksWrapper = document.getElementById("menu_links_wrapper");
+const bars = document.getElementById("bars"); // ตัวนี้ถูกต้องอยู่แล้ว
 </script>
 
 </body>
