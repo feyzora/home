@@ -1,593 +1,259 @@
-
-การสนทนากับ Gemini
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>NDREAM</title>
-
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-
-
+<title>Untitled Document</title>
 
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
 
-
-
 html {
-
-scroll-behavior: smooth;
-
+	scroll-behavior: smooth;	
+	
 }
-
-
 
 body {
-
-    font-family: "Mitr", sans-serif;
-
-    font-weight: 200;
-
-    font-style: normal;
-
-    box-sizing: border-box;
-
-    margin: 0;
-
-    padding: 0;
-
-    overflow-x: hidden;
-
+	font-family: "Mitr", sans-serif;
 }
 
-
-
-.main_table_wrapper {
-
-    width: 100%;
-
-    max-width: 1260px;
-
-    margin: 0 auto;
-
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;	
 }
 
-
-
-.main_table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-border: none;
-
+.container {
+	margin: 0 auto;
+	max-width: 1170px;	
 }
 
-
-
-.main_table td, .main_table th {
-
-    padding: 10px;
-
-    vertical-align: top;
-
+nav {
+	background-color: #fff;
+	top: 0;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	position: fixed;
+	width: 100%;
+	.nav-con {
+		display: flex;
+		justify-content: space-between;	
+		align-items: center;
+		height: auto;
+		position: relative;
+		.logo {
+			p {
+				color: #F00;
+				font-weight: 500;
+				font-size: 1.5rem;	
+			}
+		}
+		.menu {
+			list-style: none;
+			li {
+				margin-left: 35px;
+				a {
+					color: #000;
+					text-decoration: none;	
+					display: flex;
+					font-weight: 500;
+					font-size: 1.3rem;
+					transition: .3s;
+				}
+			}
+		}
+	}
 }
-
-
-
-
-
-.menu_table {
-
-background-color: #fcfcfd;
-
-box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-
-top: 0;
-
-left: 0;
-
-z-index: 5;
-
-position: fixed;
-
-width: 100%;
-
-justify-content: space-between;
-
-
-
-}
-
-
-
-.menu_table td, .menu_table th {
-
-    padding: 10px;
-
-    vertical-align: middle;
-
-    text-align: center;
-
-    white-space: nowrap;
-
-}
-
-
-
-.menu_a {
-
-font-family: "Mitr", sans-serif;
-
-font-size: 20px;
-
-font-weight: 500;
-
-color: #111;
-
-text-decoration: none;
-
-}
-
-
-
-.menu_bars {
-
-font-size: 25px;
-
-color: #111;
-
-cursor: pointer;
-
-align-items: center;
-
-justify-content: right;
-
-padding: 0 20px;
-
-right: 15px;
-
-display: none;
-
-}
-
-
-
-.menu_bars:hover {
-
-color: #F00;
-
-transition: .4s;
-
-}
-
-
-
-.menu_a:hover {
-
-color: #F00;
-
-transition: .4s;
-
-}
-
-
-
-.fa-solid.fa-circle-plus {
-
-color: #111;
-
-    margin-right: 5px;
-
-}
-
-
-
-.menu_a:hover .fa-solid.fa-circle-plus {
-
-color: #F00;
-
-}
-
-
-
-.menu_logo {
-
-font-family: "Mitr", sans-serif;
-
-font-size: 30px;
-
-font-weight: 500;
-
-color: #F00;
-
-text-shadow: 0 6px 3px rgba(0, 0, 0, .1);
-
-}
-
-
-
-
-
-.totop {
-
-font-size: 34px;
-
-background-color: red;
-
-color: #fff;
-
-width: 50px;
-
-height: 50px;
-
-border-radius: 100px;
-
-position: fixed;
-
-display: flex;
-
-bottom: 20px;
-
-right: 20px;
-
-justify-content: center;
-
-align-items: center;
-
-cursor: pointer;
-
-box-shadow: 0 10px 5px rgba(0, 0, 0, .2);
-
-transition: .4s;
-
-text-decoration: none;
-
-}
-
-
-
-.totop:hover {
-
-font-size: 35px;
-
-background-color: #fff;
-
-color: #F00;
-
-bottom: 25px;
-
-transition: .4s;
-
-border: 1px solid #000;
-
-}
-
-
 
 
 
 img {
-
-max-width: 100%;
-
-height: auto;
-
-border-radius: 20px;
-
-    display: block;
-
-width: 100%;
-
+	border-radius: 25px;	
 }
-
-
 
 ::-webkit-scrollbar {
+	display: none;	
+}
 
-width: 10px;
+.totopbtn {
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	background-color: #f00;
+	color: #fff;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;	
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	text-decoration: none;
+	font-size: 1.4rem;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	transition: .5s;
+}
 
+.totopbtn:hover {
+	background-color: #fff;
+	color: #f00;
+	bottom: 25px;
+	font-size: 1.4rem;
+	border: 1px solid #f2f2f2;
+	transition: .5s;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .2)
+}
+
+nav .container .nav-con .menu li a:hover {
+    color: #f00;
+	transition: .3s;
+	
+}
+
+.toggleham {
+	display: inline-block;
+	position: absolute;
+  cursor: pointer;
+  right: 10px;
+}
+
+.toggleham:hover {
+  .bar1, .bar2, .bar3 {
+  background-color: #f00;
+  transition: 0.4s;
+ }
 }
 
 
-
-::-webkit-scrollbar-track {
-
-background-color: #fff;
-
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #000;
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 25px
+  
 }
 
+@media only screen and (min-width: 480px){
+	.toggleham {
+		display: none;
+  
+  }
+  ul .menu {
+	display: flex;  
+  }
+ }
 
 
-::-webkit-scrollbar-thumb {
-
-background-color: #fff;
-
-border-radius: 25px;
-
-transition: .4s;
-
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
 }
 
+.change .bar2 {opacity: 0;}
 
-
-::-webkit-scrollbar-thumb:hover {
-
-background-color: #F00;
-
-transition: .4s;
-
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
 }
 
-
-
-
-
-@media only screen and (max-width: 768px) {
-
-    .menu_table th, .menu_table td {
-
-        width: 100%;
-
-        text-align: left;
-
-        padding: 5px 15px;
-
-        box-sizing: border-box;
-
-    }
-
-
-
-
-
-    .menu_a {
-
-flex-direction: colum;
-
-position: relative;
-
-align-items: center;
-
-font-size: 18px;
-
-        display: block;
-
-        width: 100%;
-
-        padding: 5px 0;
-
-
-    }
-
-
-
-.menu_table th.menu_bars {
-
-display: block;
-
-        justify-content: flex-end;
-
-        padding-right: 13px;
-
-position: absolute;
-
-top: 7px;
-
-left: 340px;
-
+@media only screen and (max-width: 480px){
+	.toggleham {
+		display: inline-block;
+  
+  }
+  ul .menu {
+	flex-decoration: colum;
+	justify-content: flex-start;
+  }
 }
-
-
-
-    .menu_logo {
-
-        font-size: 26px;
-
-        text-align: center;
-
-        width: 100%;
-
-        padding-bottom: 10px;
-
-        box-sizing: border-box;
-
-display: flex;
-
-    }
-
-
-
-
-
-    #creForm {
-
-        font-size: 18px;
-
-    }
-
-
-
-    .main_table td, .main_table th {
-
-        padding: 10px 15px;
-
-    }
-
-}
-
-
-
-
-
-@media only screen and (max-width: 480px) {
-
-        .menu_table th.menu_a,th:not(.menu_logo):not(.menu_bars) {
-
-flex-direction: colum;
-
-position: relative;
-
-align-items: center;
-
-display: none;
-
-    }
-
-    .menu_logo {
-
-        font-size: 22px;
-
-    }
-
-    .main_table td, .main_table th {
-
-        padding: 8px 10px;
-
-    }
-
-.menu_bars {
-
-display: flex;
-
-}
-
-}
-
-
 
 </style>
-
-
-
 </head>
-
-
-
 <body>
-
-<div style="min-height: 80px;"></div> <div class="main_table_wrapper">
-
-    <table class="main_table">
-
-        <tr>
-
-            <td colspan="3" style="padding: 0;">
-
-                <table class="menu_table">
-
-                    <tr>
-
-                        <th width="233" height="58" class="menu_logo" scope="col">NDREAM</th>
-
-                        <th width="406" height="58" class="menu_bars" scope="col"><i onclick="togglemenu()" id="bars" class="fa-solid fa-bars"></i></th>
-
-                        <div id="menu" class="menu_a" style="display: none;">
-
-                        <th width="114" scope="col"><a class="menu_a" href="#">หน้าเเรก</a></th>
-
-                        <th width="111" scope="col"><a class="menu_a" href="#">เกี่ยวกับเรา</a></th>
-
-                        <th width="93" scope="col"><a class="menu_a" href="#">ประวัติ</a></th>
-
-                        <th width="155" scope="col"><a class="menu_a" href="#">บทความยอดอิต</a></th>
-
-                        <th width="110" scope="col"><i class="fa-solid fa-circle-plus"></i> <a class="menu_a" id="creForm" href="#">ตั้งกระทู้</a></th>
-
-                        </div>
-
-                    </tr>
-
-                </table>
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td colspan="3"> <img src="banner1.png" alt="Banner Image"/>
-
-            </td>
-
-        </tr>
-
-        <tr>
-
-            <td colspan="3">
-
-            <h3>กระทู้ยอดนิยม</h3></td>
-
-        </tr>
-
-        <tr>
-
-            <td colspan="3">
-
-                <p style="height: 1000px; background-color: #f0f0f0; padding: 20px;">
-
-
-
-                </p>
-
-            </td>
-
-        </tr>
-
-    </table>
-
+<nav>
+<div class="container">
+<div class="nav-con">
+<div class="logo">
+<p>NDREAM</p>
 </div>
 
+<div class="toggleham" onclick="toggleham(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
 
-
-<a href="#" class="totop">^</a>
-
-
+<ul class="menu">
+<li><a href="#">หน้าเเรก</a></li>
+<li><a href="#">ติดต่อ</a></li>
+<li><a href="#">บทความยอดฮิต</a> </li>
+<li><a href="#">ตั้งกระทู้</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<table width="100%" height="421">
+  <tr>
+    <td><a class="totopbtn" href="#"><i class="fa-solid fa-arrow-up"></i></a></td>
+  </tr>
+  <tr>
+    <td><p>&nbsp;</p>
+    <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><img src="img/banner1.png" alt="" width="100%" height="auto" /></td>
+  </tr>
+  <tr>
+    <td><p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 
 <script>
-
-function togglemenu(){
-
-if (menu.style.display === "flex") {
-
-menu.style.display = "none";
-
-} else {
-
-    menu.style.display = "flex";
-
+function toggleham(el) {
+  el.classList.toggle("change");
 }
-
-
-}
-
-
-
-const menu = Document.getElementsById("menu");
-
-const bars = Document.getElementsById("bars");
-
-
-
-
-
-
-
 </script>
-
-
-
 </body>
-
 </html>
