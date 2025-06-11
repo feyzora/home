@@ -4,6 +4,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 	<link rel="icon" href="newsdt-icon.png" type="image/x-icon" />
 <title>NEWSDT THREAD</title>
 
@@ -38,10 +42,11 @@ nav {
 	width: 100%;
 	z-index: 1000;
 	.nav-con {
+		margin-right: 35px;
 		display: flex;
 		justify-content: space-between;	
 		align-items: center;
-		height: auto;
+		height: 60px;
 		position: relative;
 		.logo {
 		    margin-left: 5px;
@@ -56,6 +61,7 @@ nav {
 		}
 		.menu {
 			list-style: none;
+			align-items: center;
 			li {
 				margin-left: 35px;
 				a {
@@ -65,10 +71,31 @@ nav {
 					font-weight: 500;
 					font-size: 1.3rem;
 					transition: .3s;
+					
+					i {
+						align-items: center;
+						display: flex;
+						margin-right: 5px;
+					}
+				}
+				.register-btn {
+					background-color: #f00;
+					padding: 2px 15px;
+					border-radius: 25px;	
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: #fff;
+					transition: .5s;
 				}
 			}
 		}
 	}
+}
+
+.register-btn:hover {
+	box-shadow: 0 5px 10px #f00;
+	transition: .5s;
 }
 
 img {
@@ -111,6 +138,7 @@ img {
 nav .container .nav-con .menu li a:hover {
  	color: #f00;
 	transition: .3s;
+	background-color: #fff;
 }
 
 .toggleham {
@@ -161,6 +189,7 @@ nav .container .nav-con .menu li a:hover {
 		background-color: #fff;
 		box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 		padding: 10px 0;
+		align-items: center;
 	}
 	nav .container .nav-con .menu li {
 		margin: 10px 0;
@@ -186,10 +215,9 @@ nav .container .nav-con .menu li a:hover {
 </head>
 <body>
 <nav>
-<div class="container">
+<div class="container" data-aos="fade-up" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
 <div class="nav-con">
 <div class="logo">
-<img src="newsdt.png" alt="" width="18%" height="auto" />
 <p>NEWSDT</p>
 </div>
 
@@ -201,9 +229,10 @@ nav .container .nav-con .menu li a:hover {
 
 <ul class="menu">
 <li><a href="#">หน้าเเรก</a></li>
-<li><a href="#">ติดต่อ</a></li>
 <li><a href="#">บทความยอดฮิต</a> </li>
-<li><a href="#">ตั้งกระทู้</a></li>
+<li><a href="#"><i class="fa-regular fa-square-plus"></i>ตั้งกระทู้</a></li>
+<li><a href="#" class="register-btn" onclick="rebtn()">เข้าสู่ระบบ</a></li>
+<li><a href="#">สมัครสมาชิก</a></li>
 </ul>
 </div>
 </div>
@@ -268,11 +297,21 @@ nav .container .nav-con .menu li a:hover {
  	</tr>
 </table>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <script>
+AOS.init();
+
 function toggleham(el) {
  	el.classList.toggle("change");
  	const menu = document.querySelector('.nav-con .menu');
  	menu.classList.toggle('active');
+}
+
+function rebtn() {
+	alert("ไม่ต้องเข้าสู่ระบบ หรือสร้างบัญชี เพราะเรามี Guest ให้ใช้");
 }
 </script>
 </body>
