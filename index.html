@@ -174,6 +174,100 @@ nav .container .nav-con .menu li a:hover {
  	transform: translate(0, -11px) rotate(45deg);
 }
 
+
+.card-container {
+    width: 300px; 
+    height: 400px;
+    perspective: 1000px; 
+    margin: 20px; 
+}
+
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.card-container:hover .card {
+    transform: rotateY(180deg); 
+}
+
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    text-align: center;
+    color: #000;
+}
+
+.card-front {
+    background-color: #fff;
+    z-index: 2;
+}
+
+.card-front img {
+    margin-top: 15px;
+    border-radius: 8px;
+	margin-top: 15px;
+}
+
+
+.card-back {
+    background-color: #F6C; 
+    color: white;
+    transform: rotateY(180deg); 
+}
+
+
+.card-back a {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+.card-back a:hover {
+    color: #fff;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+	font-weight: 500;
+}
+
+h3 {
+	    margin-top: 0;
+	font-weight: 500;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+
+
 @media only screen and (max-width: 991px){
 	.toggleham {
 		display: inline-block;
@@ -215,7 +309,7 @@ nav .container .nav-con .menu li a:hover {
 </head>
 <body>
 <nav>
-<div class="container" data-aos="fade-up" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
+<div class="container">
 <div class="nav-con">
 <div class="logo">
 <p>NEWSDT</p>
@@ -230,7 +324,7 @@ nav .container .nav-con .menu li a:hover {
 <ul class="menu">
 <li><a href="#">หน้าเเรก</a></li>
 <li><a href="#">บทความยอดฮิต</a> </li>
-<li><a href="#"><i class="fa-regular fa-square-plus"></i>ตั้งกระทู้</a></li>
+<li><a href="#"><i class="fa-regular fa-square-plus"></i>ไม่มีอะไร</a></li>
 <li><a href="#" class="register-btn" onclick="rebtn()">เข้าสู่ระบบ</a></li>
 <li><a href="#">สมัครสมาชิก</a></li>
 </ul>
@@ -249,12 +343,26 @@ nav .container .nav-con .menu li a:hover {
  	 	<td>&nbsp;</td>
  	</tr>
  	<tr>
- 	 	<td><img src="banner1.png" alt="" width="100%" height="auto" /></td>
+ 	 	<td></td>
  	</tr>
  	<tr>
  	 	<td><p>&nbsp;</p>
  	 	<p>&nbsp;</p>
- 	 	<p>&nbsp;</p>
+ 	 	<p>
+ 	 	<div class="card-container" data-aos="fade-up" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
+        <div class="card">
+        <div class="card-front">
+        <img src="sh.png" width="160px" height="auto" />
+        <h2>โรงเรียนสหศึกษาบางบัวทอง</h2>
+        <p>อำเภอบางบัวทอง จังหวัดนนทบุรี</p>
+        </div>
+        
+        <div class="card-back">
+        <h2>ผู้จัดทำ</h2>
+        <h3>ด.ช. ณรงค์ศักดิ์ จันทร์พวง</h3>
+        </div>
+        </div>
+        </div></p>
  	 	<p>&nbsp;</p>
  	 	<p>&nbsp;</p>
  	 	<p>&nbsp;</p>
