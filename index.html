@@ -53,7 +53,7 @@ nav {
 		    display: flex;
 		    align-items: center;
 			p {
-				color: #F00;
+				color: #06F;
 				margin-left: 15px;
 				font-weight: 500;
 				font-size: 1.5rem;	
@@ -79,7 +79,7 @@ nav {
 					}
 				}
 				.register-btn {
-					background-color: #f00;
+					background-color: #06F;
 					padding: 2px 15px;
 					border-radius: 25px;	
 					display: flex;
@@ -94,7 +94,7 @@ nav {
 }
 
 .register-btn:hover {
-	box-shadow: 0 5px 10px #f00;
+	box-shadow: 0 2px 5px #06F;
 	transition: .5s;
 }
 
@@ -110,7 +110,7 @@ img {
 	width: 50px;
 	height: 50px;
 	border-radius: 100px;
-	background-color: #f00;
+	background-color: #06F;
 	color: #fff;
 	position: fixed;
 	bottom: 20px;
@@ -127,16 +127,16 @@ img {
 
 .totopbtn:hover {
 	background-color: #fff;
-	color: #f00;
+	color: #06F;
 	bottom: 25px;
 	font-size: 1.4rem;
-	border: 1px solid #f2f2f2;
+	border: 1px solid #v;
 	transition: .5s;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, .2)
 }
 
 nav .container .nav-con .menu li a:hover {
- 	color: #f00;
+ 	color: #06F;
 	transition: .3s;
 	background-color: #fff;
 }
@@ -174,6 +174,10 @@ nav .container .nav-con .menu li a:hover {
  	transform: translate(0, -11px) rotate(45deg);
 }
 
+.card-box {
+	justify-content: center;
+	align-items: center;	
+}
 
 .card-container {
     width: 300px; 
@@ -222,14 +226,15 @@ nav .container .nav-con .menu li a:hover {
 }
 
 .card-front img {
-    margin-top: 15px;
+    margin-top: 10px;
     border-radius: 8px;
-	margin-top: 15px;
+	margin-bottom: 10px;
+	align-items: center;
 }
 
 
 .card-back {
-    background-color: #F6C; 
+    background-color: #06F; 
     color: white;
     transform: rotateY(180deg); 
 }
@@ -271,6 +276,29 @@ p {
     justify-content: center; 
     align-items: flex-start; 
     padding: 20px;	
+}
+
+button {
+	background-color: #fff;
+	border: none;
+	width: 90px;
+	border-radius: 25px;
+	height: 30px;	
+	margin-top: 20px;
+	color: #06F;
+	box-shadow: 0 5px 10px #CCC;
+	transition: .5s;
+}
+button:hover {
+	background-color: #E5F4FF;
+	border: none;
+	width: 90px;
+	border-radius: 25px;
+	height: 30px;	
+	margin-top: 15px;
+	color: #06F;
+	box-shadow: 0 5px 10px #CCC;
+	transition: .5s;
 }
 
 
@@ -328,7 +356,7 @@ p {
 </div>
 
 <ul class="menu">
-<li><a href="#">หน้าเเรก</a></li>
+<li><a href="index.html">หน้าเเรก</a></li>
 <li><a href="#">บทความยอดฮิต</a> </li>
 <li><a href="#"><i class="fa-regular fa-square-plus"></i>ไม่มีอะไร</a></li>
 <li><a href="#" class="register-btn" onclick="rebtn()">เข้าสู่ระบบ</a></li>
@@ -352,45 +380,15 @@ p {
  	 	<div class="card-container" data-aos="fade-up" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
         <div class="card">
         <div class="card-front">
-        <img src="sh.png" width="160px" height="auto" />
-        <h2>โรงเรียนสหศึกษาบางบัวทอง</h2>
-        <p>อำเภอบางบัวทอง จังหวัดนนทบุรี</p>
+        <img src="ai-card" width="260px" height="auto" />
+        <h2>งาน 10 ด้านที่ระบบ AI สามารถเรียนรู้และนำมาใช้ประโยชน์ได้</h2>
+        <p>เช่น ด้านความปลอดภัย เเละด้านอื่น</p>
         </div>
         
         <div class="card-back">
-        <h2>ผู้จัดทำ</h2>
-        <h3>ด.ช. ณรงค์ศักดิ์ จันทร์พวง</h3>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card-container" data-aos="fade-up" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
-        <div class="card">
-        <div class="card-front">
-        <img src="sh.png" width="160px" height="auto" />
-        <h2>โรงเรียนสหศึกษาบางบัวทอง</h2>
-        <p>อำเภอบางบัวทอง จังหวัดนนทบุรี</p>
-        </div>
-        
-        <div class="card-back">
-        <h2>ผู้จัดทำ</h2>
-        <h3>ด.ช. ณรงค์ศักดิ์ จันทร์พวง</h3>
-        </div>
-        </div>
-        </div>
-        
-        <div class="card-container" data-aos="fade-up" data-aos-duration="1300" data-aos-easing="ease-out-cubic">
-        <div class="card">
-        <div class="card-front">
-        <img src="sh.png" width="160px" height="auto" />
-        <h2>โรงเรียนสหศึกษาบางบัวทอง</h2>
-        <p>อำเภอบางบัวทอง จังหวัดนนทบุรี</p>
-        </div>
-        
-        <div class="card-back">
-        <h2>ผู้จัดทำ</h2>
-        <h3>ด.ช. ณรงค์ศักดิ์ จันทร์พวง</h3>
-        </div>
+        <h2>เข้าชมบทความ</h2>
+        <h3>กดที่ปุ่มเพื่อเข้าชม</h3>
+        <button onclick="window.location.href='c1.html';">เข้าชม</button>
         </div>
         </div>
         </div>
