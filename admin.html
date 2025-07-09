@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="admin.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+<div class="container" id="container">
+    <nav>
+        <div class="nav-con">
+            <div class="logo">
+                <h2><i class="fa-solid fa-dharmachakra"></i> ธรรมาสน์สไตล์</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="#">หน้าเเรก </a></li>
+                <li><a href="#">สถานที่ </a></li>
+                <li><a href="#">งานหัตถกรรม </a></li>
+                <li><a href="#">สินค้าท้องถิ่น </a></li>
+                <li><a href="#">ติดต่อเรา</a></li>
+                <li><i onclick="opensearchbar()" class="fa-solid fa-magnifying-glass"></i></li>
+                <li><i onclick="logoutAdmin()" class="fa-solid fa-arrow-right-to-bracket"></i></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="head">
+    <div class="head-con">
+        <h1>ธรรมาสน์สไตล์ <span style="color: red;">โหมดสำหรับเเอดมิน</span></h1>
+        <p>เว็บไซต์นี้เป็นเว็บไซต์เช่าพระเครื่องของผมเองไม่มีการให้ผู้อื่นหรือผู้ใดมาลงเช่าพระเครื่อง</p>
+        <img src="logo.png">
+    </div>
+
+    <div class="search-bar none">
+        <i onclick="opensearchbar()" class="fa-solid fa-magnifying-glass"></i><input id="searchInput" placeholder=" ค้นหา พระเครื่อง...">
+    </div>
+    
+    <div class="text-float">
+        <h1 class="float">โหมดสำหรับเเอดมิน !</h1>
+    </div>
+    
+    <div id="con">
+
+        </div>
+</div>
+
+    <div id="admin-content" style="display: none;">
+        <h1>ยินดีต้อนรับสู่หน้าแอดมิน!</h1>
+        <p>คุณได้เข้าถึงหน้านี้ในฐานะผู้ดูแลระบบ</p>
+    </div>
+
+
+    <script src="admin.js"></script>
+</body>
+</html>
