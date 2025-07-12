@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ธรรมาสน์สไตล์: เว็บไซต์ให้เช่าพระเครื่อง หลวงพ่อรวย หลวงปู่ทิม และพระเกจิดัง ค่า ส่ง 35 บาท ไม่มีเก็บปลายทาง">
+    <meta name="keywords" content="เช่าพระเครื่อง, พระเครื่อง, หลวงพ่อรวย, หลวงปู่โ๖, พระเกจิ, พระแท้, วัตถุมงคล, ศูนย์เช่าพระ, พระบูชา, ร้านพระเครื่อง, เว็บไซต์พระเครื่อง, เช่าพระออนไลน์, พระเครื่องยอดนิยม">
+    <meta name="author" content="ธรรมาสน์สไตล์">
+    <meta name="robots" content="index, follow">
+    <title>ธรรมาสน์สไตล์ | เว็บไซต์เช่าพระเครื่อง</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container" id="container">
+        <nav>
+            <div class="nav-con">
+                <div class="logo">
+                    <h2><i class="fa-solid fa-dharmachakra"></i> ธรรมาสน์สไตล์</h2>
+                </div>
+                <ul class="menu" id="navMenu">
+                    <li><a href="#">หน้าเเรก </a></li>
+                    <li><a href="#">พระเครื่อง</a></li>
+                    <li><a href="#">ติดต่อเรา</a></li>
+                    <li><i onclick="opensearchbar()" class="fa-solid fa-magnifying-glass"></i></li>
+                    <li><i onclick="opencontrols()" class="fa-solid fa-user"></i></li>
+                </ul>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        <div class="head">
+            <div class="head-con">
+                <h1>ธรรมาสน์สไตล์</h1>
+                <p>ยินดีต้อนรับสู่ ธรรมาสน์สไตล์ ครับ! ที่นี่ไม่ใช่เว็บไซต์สำหรับลงประกาศเช่าพระทั่วไป แต่เป็นพื้นที่ส่วนตัวที่ผมได้รวบรวม **พระเครื่อง** ที่ผมสะสมและดูแลมาอย่างยาวนาน ครับ</p>
+                <img src="logo.png">
+            </div>
+
+            <div class="search-bar none">
+                <i onclick="opensearchbar()" class="fa-solid fa-magnifying-glass"></i><input id="searchInput" placeholder=" ค้นหา พระเครื่อง...">
+            </div>
+
+            <div class="text-float">
+                <h1 class="float">ไม่มีการเก็บเงินปลายทาง ค่าส่งเหมาจ่าย 35 บาท</h1>
+            </div>
+            <div id="amulets-display-area">
+                <div id="con" class="swiper">
+                    <div class="swiper-wrapper">
+                        
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <div id="no-results-container" style="display: none;">
+                    <h1 class="noresult">ไม่พบผลลัพธ์</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="popup none">
+        <div class="x-icon">
+            <button class="x" onclick="closepopup()">X</button>
+        </div>
+    </div>
+
+    <div class="controls none">
+        <div class="x-icon">
+            <button class="x" onclick="closecontrols()">X</button>
+        </div>
+        <center><h1>สำหรับเเอดมิน</h1></center>
+        <h3>อีเมลเเอดมิน</h3>
+        <input class="controls-input" id="adminEmail" placeholder="อีเมลเเอดมิน">
+        <h3>รหัสผ่าน</h3>
+        <input class="controls-input" id="adminPassword" type="password" placeholder="รหัสผ่าน">
+        <center><button class="adminbtn">ส่งฟอร์ม</button></center>
+        <br>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
